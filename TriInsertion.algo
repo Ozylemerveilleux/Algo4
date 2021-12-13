@@ -1,0 +1,15 @@
+PROCEDURE tri_insertion(tab : ARRAY_OF INTEGER[1..20];)
+VAR
+    i,n,tmp : INTEGER
+BEGIN
+     n:=tab.length;
+     Read(n) //parcourir chaque elmt du tab
+    FOR i FROM 1 TO n-1 STEP 1  DO
+        tmp := tab[i]; //sera notre elmt à comparer avec chaque elmt du tab
+        WHILE ((i>0) && (tab[i-1]>tmp)) DO // recherche de la position ou inserrer notre elmt
+            tab[i] := tab[i-1];
+            i := i-1 ;
+        END_WHILE
+        tab[i] := tmp;  //on inserre notre elmt
+    END_FOR
+END
